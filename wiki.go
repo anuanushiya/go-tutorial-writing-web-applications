@@ -25,10 +25,10 @@ func (p *Page) save() error {
 func loadPage(title string) (*Page, error) {
   filename := "pages/" + title + ".txt"
   body, err := ioutil.ReadFile(filename)
-  html := createHtmlTemplate(body)
   if err != nil {
     return nil, err
   }
+  html := createHtmlTemplate(body)
   return &Page{Title: title, Body: body, Html: html}, nil
 }
 
